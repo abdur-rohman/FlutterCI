@@ -23,6 +23,7 @@ jobs:
 
       - name: Cache Flutter dependencies
         uses: actions/cache@v1
+        id: flutter-pub-cache
         with:
           path: /opt/hostedtoolcache/flutter
           key: ${{ runner.OS }}-flutter-install-cache-${{ env.flutter_version }}
@@ -49,6 +50,7 @@ jobs:
 
       - name: Cache Flutter dependencies
         uses: actions/cache@v1
+        id: flutter-pub-cache
         with:
           path: /opt/hostedtoolcache/flutter
           key: ${{ runner.OS }}-flutter-install-cache-${{ env.flutter_version }}
@@ -75,6 +77,7 @@ jobs:
 
       - name: Cache Flutter dependencies
         uses: actions/cache@v1
+        id: flutter-pub-cache
         with:
           path: /opt/hostedtoolcache/flutter
           key: ${{ runner.OS }}-flutter-install-cache-${{ env.flutter_version }}
@@ -115,6 +118,7 @@ jobs:
 
       - name: Cache Flutter dependencies
         uses: actions/cache@v1
+        id: flutter-pub-cache
         with:
           path: /opt/hostedtoolcache/flutter
           key: ${{ runner.OS }}-flutter-install-cache-${{ env.flutter_version }}
