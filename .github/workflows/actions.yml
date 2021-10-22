@@ -12,7 +12,7 @@ env:
 
 jobs:
   analyze:
-    runs-on: macos-latest
+    runs-on: macos-11
 
     steps:
       - uses: actions/checkout@v2
@@ -23,9 +23,12 @@ jobs:
 
       - name: Cache Flutter dependencies
         uses: actions/cache@v1
+        id: flutter-pub-cache
         with:
           path: /opt/hostedtoolcache/flutter
           key: ${{ runner.OS }}-flutter-install-cache-${{ env.flutter_version }}
+          restore-keys: |
+            ${{ runner.OS }}-flutter-cache-
 
       - uses: subosito/flutter-action@v1
         with:
@@ -36,7 +39,7 @@ jobs:
         run: flutter analyze
 
   test:
-    runs-on: macos-latest
+    runs-on: macos-11
 
     steps:
       - uses: actions/checkout@v2
@@ -47,9 +50,12 @@ jobs:
 
       - name: Cache Flutter dependencies
         uses: actions/cache@v1
+        id: flutter-pub-cache
         with:
           path: /opt/hostedtoolcache/flutter
           key: ${{ runner.OS }}-flutter-install-cache-${{ env.flutter_version }}
+          restore-keys: |
+            ${{ runner.OS }}-flutter-cache-
 
       - uses: subosito/flutter-action@v1
         with:
@@ -60,7 +66,7 @@ jobs:
         run: flutter test
 
   build-ios:
-    runs-on: macos-latest
+    runs-on: macos-11
 
     steps:
       - uses: actions/checkout@v2
@@ -71,9 +77,12 @@ jobs:
 
       - name: Cache Flutter dependencies
         uses: actions/cache@v1
+        id: flutter-pub-cache
         with:
           path: /opt/hostedtoolcache/flutter
           key: ${{ runner.OS }}-flutter-install-cache-${{ env.flutter_version }}
+          restore-keys: |
+            ${{ runner.OS }}-flutter-cache-
 
       - uses: subosito/flutter-action@v1
         with:
@@ -98,7 +107,7 @@ jobs:
             ios-release.ipa
 
   build-android:
-    runs-on: macos-latest
+    runs-on: macos-11
 
     steps:
       - uses: actions/checkout@v2
@@ -109,9 +118,12 @@ jobs:
 
       - name: Cache Flutter dependencies
         uses: actions/cache@v1
+        id: flutter-pub-cache
         with:
           path: /opt/hostedtoolcache/flutter
           key: ${{ runner.OS }}-flutter-install-cache-${{ env.flutter_version }}
+          restore-keys: |
+            ${{ runner.OS }}-flutter-cache-
 
       - uses: subosito/flutter-action@v1
         with:
